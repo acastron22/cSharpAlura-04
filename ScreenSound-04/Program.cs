@@ -1,20 +1,23 @@
 ﻿
 /*
- *      Escrever um programa que faça uam requisição para a API de games CheapShark e mostre na tela a lista de
- *      promoções cadastrada na ferramenta (Você pode utilizar o endpoint: https://www.cheapshark.com/api/1.0/deals).
+ *      Escrever um programa que solicite dois números a e b lidos do teclado e realize a divisão de a por b.
+ * Caso essa operação não seja possível, mostrar uma mensagem no console que deixe claro o erro ocorrido.
  */
-using (HttpClient client = new HttpClient())
-{
+    Console.Write("Digite um valor 'a': ");
+    int a = int.Parse(Console.ReadLine()!);
+    Console.Write("Digite um valor 'b': ");
+    int b = int.Parse(Console.ReadLine()!);
+
+    Console.WriteLine("Agora vamos dividir a por b");
+    Thread.Sleep(1500);
     try
     {
-        string resposta = await client.
-            GetStringAsync("https://www.cheapshark.com/api/1.0/deals");
-        Console.WriteLine(resposta);
+        double resp = a / b;
+        Console.WriteLine(resp);
     }
     catch (Exception e)
     {
-        Console.WriteLine($"Temos um problema: {e.Message}");
-        throw;
+        Console.WriteLine("Parece que a não pode ser dividido por b");
+        Console.WriteLine(e.Message);
+        
     }
-
-}
