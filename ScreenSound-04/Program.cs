@@ -8,7 +8,7 @@
     }
     catch (Exception e)
     {
-        Console.WriteLine($"Temos um problema: {e}");
+        Console.WriteLine($"Temos um problema: {e.Message}");
         throw;
     }
 
