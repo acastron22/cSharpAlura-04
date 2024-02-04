@@ -6,6 +6,7 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <RootNamespace>AluraCSharp4</RootNamespace>
+        <LangVersion>preview</LangVersion>
     </PropertyGroup>
 
 </Project>

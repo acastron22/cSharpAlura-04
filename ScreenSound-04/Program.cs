@@ -1,23 +1,17 @@
 ﻿
 /*
- *      Escrever um programa que solicite dois números a e b lidos do teclado e realize a divisão de a por b.
- * Caso essa operação não seja possível, mostrar uma mensagem no console que deixe claro o erro ocorrido.
+ Declarar uma lista de inteiros e tente acessar um elemento em um índice inexistente. Tratar a exceção apropriada.
  */
-    Console.Write("Digite um valor 'a': ");
-    int a = int.Parse(Console.ReadLine()!);
-    Console.Write("Digite um valor 'b': ");
-    int b = int.Parse(Console.ReadLine()!);
+List<string> numeros = new List<string>(["0", "10", "15", "20", "25", "30"]);
 
-    Console.WriteLine("Agora vamos dividir a por b");
-    Thread.Sleep(1500);
-    try
-    {
-        double resp = a / b;
-        Console.WriteLine(resp);
-    }
-    catch (Exception e)
-    {
-        Console.WriteLine("Parece que a não pode ser dividido por b");
-        Console.WriteLine(e.Message);
-        
-    }
+Console.WriteLine("Qual índice da lista de numeros você deseja acessar? campos de 0 a 5");
+int escolha = int.Parse(Console.ReadLine()!);
+try
+{
+ Console.WriteLine(numeros[escolha]);
+}
+catch (Exception e)
+{
+ Console.WriteLine("Oh não! Valor digitado não está no índice da nossa lista!");
+ Console.WriteLine(e.Message);
+}
