@@ -1,21 +1,21 @@
-﻿using System.Text.Json;
+﻿// Modelar e desserializar a classe Pais,
+
+using System.Text.Json;
 using AluraCSharp4.Modelos;
 
 using (HttpClient client = new HttpClient())
 {
+    string resposta =
+        await client.GetStringAsync(
+            "https://raw.githubusercontent.com/ArthurOcFernandes/Exerc-cios-C-/curso-4-aula-2/Jsons/Paises.json");
     try
     {
-        string resposta = await client.
-            GetStringAsync("https://guilhermeonrails.github.io/api-csharp-songs/songs.json");
-        
-
-        var musicas = JsonSerializer.Deserialize<List<Musica>>(resposta)!;
-        musicas[1998].ExibirDetalhesDaMusica();
+        var paises = JsonSerializer.Deserialize<List<Pais>>(resposta);
+        paises?[2].ExibirDetalhesDoPais();
     }
     catch (Exception e)
     {
-        Console.WriteLine($"Temos um problema: {e.Message}");
+        Console.WriteLine(e);
         throw;
     }
-
 }
