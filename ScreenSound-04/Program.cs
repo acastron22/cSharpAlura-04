@@ -1,16 +1,17 @@
 ﻿using System.Text.Json;
 using AluraCSharp4.Modelos;
 
+
 using (HttpClient client = new HttpClient())
 {
     try
     {
         string resposta = await client.
-            GetStringAsync("https://guilhermeonrails.github.io/api-csharp-songs/songs.json");
+            GetStringAsync("https://raw.githubusercontent.com/ArthurOcFernandes/Exerc-cios-C-/curso-4-aula-2/Jsons/TopMovies.json");
         
 
-        var musicas = JsonSerializer.Deserialize<List<Musica>>(resposta)!;
-        musicas[1998].ExibirDetalhesDaMusica();
+        var filme = JsonSerializer.Deserialize<List<Filme>>(resposta)!;
+        filme[0].ExibirDetalhes();
     }
     catch (Exception e)
     {
